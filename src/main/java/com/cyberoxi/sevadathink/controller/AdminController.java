@@ -7,6 +7,7 @@ import com.cyberoxi.sevadathink.repositories.CompanyRepository;
 import com.cyberoxi.sevadathink.repositories.EmployeeRepository;
 import com.cyberoxi.sevadathink.repositories.ProjectRepository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,5 +41,4 @@ public class AdminController {
     public List<Project> allProjects(){
         return projectRepository.findAll();
     }
-
 }
