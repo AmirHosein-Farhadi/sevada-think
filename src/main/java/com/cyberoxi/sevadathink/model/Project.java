@@ -32,6 +32,7 @@ public class Project extends AuditModel {
 
     private int priority;
 
+    //todo decide if its a string(the person or company who ordered project) or it is our own company(CyberOxi)
     @ManyToOne
     private Company owner;
 
@@ -40,4 +41,8 @@ public class Project extends AuditModel {
             joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "employees_id", referencedColumnName = "id"))
     private List<Employee> employees = new ArrayList<>();
+
+    public void addEmployee(Employee employee){
+        this.employees.add(employee);
+    }
 }

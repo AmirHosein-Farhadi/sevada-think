@@ -33,26 +33,50 @@ public class DbSeeder implements CommandLineRunner {
     private void initData(){
 
         Employee employee = new Employee();
+        Employee employee1 = new Employee();
 
         Company company = new Company();
+        Company company1 = new Company();
 
         Project project = new Project();
+        Project project1 = new Project();
 
         employee.setFirstName("Amir");
         employee.setEmail("cnooed@gmail.com");
-        employeeRepository.save(employee);
-
+        employee.setCompany(company);
+        employee.addProject(project);
 
         company.setAddress("ffwegerhethertjherhergerwfgwe");
         company.setName("gggggggggg");
-        companyRepository.save(company);
-
+        company.addEmployee(employee);
+        company.addProject(project);
 
         project.setOwner(company);
         project.setBudget("4444444444");
+        project.addEmployee(employee);
+
+
+        employee1.setFirstName("mohammad");
+        employee1.setEmail("mmk@gmail.com");
+        employee1.setCompany(company1);
+        employee1.addProject(project1);
+
+        company1.setAddress("wfeewfwefewgreger");
+        company1.setName("wefewfwefdfff");
+        company1.addEmployee(employee1);
+        company1.addProject(project1);
+
+        project1.setOwner(company1);
+        project1.setBudget("555555555");
+        project1.addEmployee(employee1);
+
+        companyRepository.save(company);
+        employeeRepository.save(employee);
         projectRepository.save(project);
 
-
+        companyRepository.save(company1);
+        employeeRepository.save(employee1);
+        projectRepository.save(project1);
     }
 
 }

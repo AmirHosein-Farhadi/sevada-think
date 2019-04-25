@@ -34,4 +34,8 @@ public class Employee extends AuditModel {
     //@ManyToMany(mappedBy = "employees")   dont need this if we got only 1 company
     @ManyToOne
     private Company company;
+
+    public void addProject(Project project){
+        this.projects.add(project);
+    }
 }

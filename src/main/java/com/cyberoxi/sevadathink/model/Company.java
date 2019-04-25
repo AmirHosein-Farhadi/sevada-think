@@ -40,4 +40,12 @@ public class Company extends AuditModel {
 
     @OneToMany
     private List<Project> projects = new ArrayList<>();
+
+    public void addEmployee(Employee employee){
+        this.employees.add(employee);
+    }
+
+    public void addProject(Project project){
+        this.projects.add(project);
+    }
 }
