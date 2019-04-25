@@ -28,7 +28,7 @@ public class Employee extends AuditModel {
     @Lob
     private String address;
 
-    @ManyToMany(mappedBy = "employees")
+    @ManyToMany//(mappedBy = "employees")   in order to a table including the projects of a employee
     private List<Project> projects = new ArrayList<>();
 
     //@ManyToMany(mappedBy = "employees")   dont need this if we got only 1 company
