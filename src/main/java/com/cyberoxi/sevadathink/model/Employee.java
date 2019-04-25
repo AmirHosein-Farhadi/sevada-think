@@ -6,10 +6,12 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@EqualsAndHashCode(exclude = {"projects", "companies"}, callSuper = false)
+@EqualsAndHashCode(exclude = "projects", callSuper = false)
 @Entity
 public class Employee extends AuditModel {
 
@@ -27,8 +29,9 @@ public class Employee extends AuditModel {
     private String address;
 
     @ManyToMany(mappedBy = "employees")
-    private List<Project> projects;
+    private List<Project> projects = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "employees")
-    private List<Company> companies;
+    //@ManyToMany(mappedBy = "employees")   dont need this if we got only 1 company
+    @ManyToOne
+    private Company company;
 }

@@ -4,7 +4,9 @@ package com.cyberoxi.sevadathink.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,10 +32,10 @@ public class Company extends AuditModel {
 
     private String comments;
 
-    @ManyToMany
-    @JoinTable(name = "company_employees",
-            joinColumns = @JoinColumn(name = "company_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "employees_id", referencedColumnName = "id"))
+//    @JoinTable(name = "company_employees",
+//            joinColumns = @JoinColumn(name = "company_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(name = "employees_id", referencedColumnName = "id"))
+    @OneToMany
     private List<Employee> employees = new ArrayList<>();
 
     @OneToMany
