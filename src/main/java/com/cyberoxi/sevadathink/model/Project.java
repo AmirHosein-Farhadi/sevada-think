@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@EqualsAndHashCode(exclude = "employees", callSuper = false)
+@EqualsAndHashCode(exclude = "employees", callSuper = true)
 @Entity
 public class Project extends AuditModel {
 
@@ -33,8 +33,12 @@ public class Project extends AuditModel {
     private int priority;
 
     //todo decide if its a string(the person or company who ordered project) or it is our own company(CyberOxi)
+
     @ManyToOne
-    private Company owner;
+    private User owner;
+
+    @ManyToOne
+    private Company company;
 
     @ManyToMany
     @JoinTable(name = "project_employees",

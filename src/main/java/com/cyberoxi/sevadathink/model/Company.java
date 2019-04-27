@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@EqualsAndHashCode(exclude = {"employees", "projects"}, callSuper = false)
+@EqualsAndHashCode(exclude = {"employees", "projects"}, callSuper = true)
 @Entity
 public class Company extends AuditModel {
 

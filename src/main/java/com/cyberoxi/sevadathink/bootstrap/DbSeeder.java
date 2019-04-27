@@ -3,6 +3,7 @@ package com.cyberoxi.sevadathink.bootstrap;
 import com.cyberoxi.sevadathink.model.Company;
 import com.cyberoxi.sevadathink.model.Employee;
 import com.cyberoxi.sevadathink.model.Project;
+import com.cyberoxi.sevadathink.model.User;
 import com.cyberoxi.sevadathink.repositories.CompanyRepository;
 import com.cyberoxi.sevadathink.repositories.EmployeeRepository;
 import com.cyberoxi.sevadathink.repositories.ProjectRepository;
@@ -38,6 +39,12 @@ public class DbSeeder implements CommandLineRunner {
         Company company = new Company();
         Company company1 = new Company();
 
+        User user = new User();
+        user.setFirstName("user");
+        user.setPassword("password");
+        user.setUsername("user");
+        user.setPhoneNumber("555555555");
+
         Project project = new Project();
         Project project1 = new Project();
 
@@ -51,7 +58,7 @@ public class DbSeeder implements CommandLineRunner {
         company.addEmployee(employee);
         company.addProject(project);
 
-        project.setOwner(company);
+        project.setCompany(company);
         project.setBudget("4444444444");
         project.addEmployee(employee);
 
@@ -66,7 +73,7 @@ public class DbSeeder implements CommandLineRunner {
         company1.addEmployee(employee1);
         company1.addProject(project1);
 
-        project1.setOwner(company1);
+        project1.setCompany(company1);
         project1.setBudget("555555555");
         project1.addEmployee(employee1);
 

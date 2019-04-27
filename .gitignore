@@ -4,7 +4,6 @@ HELP.md
 .mvn/
 mvnw
 mvnw.cmd
-src/main/resources/application.properties
 
 ### STS ###
 .apt_generated
