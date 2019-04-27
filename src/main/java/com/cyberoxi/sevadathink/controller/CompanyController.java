@@ -1,17 +1,25 @@
 package com.cyberoxi.sevadathink.controller;
 
+import com.cyberoxi.sevadathink.api.services.CompanyService;
 import com.cyberoxi.sevadathink.model.Company;
 import com.cyberoxi.sevadathink.repositories.CompanyRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/company")
 public class CompanyController {
 
     private final CompanyRepository companyRepository;
+    private final CompanyService companyService;
 
-    public CompanyController(CompanyRepository companyRepository) {
+    public CompanyController(CompanyRepository companyRepository, CompanyService companyService) {
         this.companyRepository = companyRepository;
+        this.companyService = companyService;
     }
 
     @PostMapping("/new")
@@ -19,9 +27,21 @@ public class CompanyController {
         companyRepository.save(company);
     }
 
-    @GetMapping("/{id}")
-    public Company companyDetail(@PathVariable("id") String id){
-        //todo exception
-        return companyRepository.findById(Long.valueOf(id)).get();
+    @PutMapping("/update")
+    public void updateCompany(@RequestBody Company company){
+        //company.setId(companyRepository.findByName("CyberOxi").getId());
+        companyRepository.save(company);
+    }
+
+    @GetMapping
+    public ResponseEntity<Map<String, Object>> companyDetail() {
+
+        Map<String, Object> respond = new HashMap<>();
+
+        respond.put("company", companyService.getCompany());
+        respond.put("employees", companyService.getEmployees().getEmployees());
+        respond.put("projects", companyService.getProjects().getProjects());
+
+        return new ResponseEntity<>(respond, HttpStatus.OK);
     }
 }

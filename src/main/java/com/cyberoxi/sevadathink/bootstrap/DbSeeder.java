@@ -37,7 +37,6 @@ public class DbSeeder implements CommandLineRunner {
         Employee employee1 = new Employee();
 
         Company company = new Company();
-        Company company1 = new Company();
 
         User user = new User();
         user.setFirstName("user");
@@ -54,8 +53,9 @@ public class DbSeeder implements CommandLineRunner {
         employee.addProject(project);
 
         company.setAddress("ffwegerhethertjherhergerwfgwe");
-        company.setName("gggggggggg");
+        company.setName("CyberOxi");
         company.addEmployee(employee);
+        company.addEmployee(employee1);
         company.addProject(project);
 
         project.setCompany(company);
@@ -63,27 +63,21 @@ public class DbSeeder implements CommandLineRunner {
         project.addEmployee(employee);
 
 
-        employee1.setFirstName("mohammad");
+        employee1.setFirstName("Mohammad");
         employee1.setEmail("mmk@gmail.com");
-        employee1.setCompany(company1);
+        employee1.setCompany(company);
         employee1.addProject(project1);
 
-        company1.setAddress("wfeewfwefewgreger");
-        company1.setName("wefewfwefdfff");
-        company1.addEmployee(employee1);
-        company1.addProject(project1);
-
-        project1.setCompany(company1);
+        project1.setOwner(company);
         project1.setBudget("555555555");
         project1.addEmployee(employee1);
 
-        companyRepository.save(company);
         employeeRepository.save(employee);
         projectRepository.save(project);
 
-        companyRepository.save(company1);
         employeeRepository.save(employee1);
         projectRepository.save(project1);
+        companyRepository.save(company);
     }
 
 }
