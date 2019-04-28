@@ -44,4 +44,8 @@ public class User extends AuditModel {
 
     @OneToMany
     private List<Project> projects = new ArrayList<>();
+
+    public void addPoject(Project project){
+        this.projects.add(project);
+    }
 }
