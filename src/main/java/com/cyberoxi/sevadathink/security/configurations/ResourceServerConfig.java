@@ -11,7 +11,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http
+        http.authorizeRequests().anyRequest().permitAll();  //added this test the application easier
+        /*        http
                 .headers()
                 .frameOptions()
                 .disable()
@@ -19,6 +20,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/","/home","/register","/login","/blog").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/order/**", "/customer/**").authenticated();
+                .antMatchers("/order/**", "/customer/**").authenticated();*/
     }
 }
