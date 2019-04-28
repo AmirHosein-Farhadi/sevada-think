@@ -1,4 +1,4 @@
-package com.cyberoxi.sevadathink.api.services;
+package com.cyberoxi.sevadathink.services;
 
 import com.cyberoxi.sevadathink.api.model.CompanyDTO;
 import com.cyberoxi.sevadathink.api.model.EmployeesListDTO;

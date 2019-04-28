@@ -1,8 +1,8 @@
 package com.cyberoxi.sevadathink.controller;
 
-import com.cyberoxi.sevadathink.api.services.CompanyService;
 import com.cyberoxi.sevadathink.model.Company;
 import com.cyberoxi.sevadathink.repositories.CompanyRepository;
+import com.cyberoxi.sevadathink.services.CompanyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
