@@ -49,4 +49,8 @@ public class Project extends AuditModel {
     public void addEmployee(Employee employee){
         this.employees.add(employee);
     }
+
+    public void addPlatform(String platform) {
+        this.platforms.add(platform);
+    }
 }

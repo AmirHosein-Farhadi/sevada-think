@@ -29,7 +29,7 @@ public class CompanyController {
 
     @PutMapping("/update")
     public ResponseEntity updateCompany(@RequestBody Company company){
-        companyRepository.save(companyService.update(company));
+        companyRepository.save(companyService.updateCompany(company));
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 

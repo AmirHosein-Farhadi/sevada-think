@@ -1,4 +1,4 @@
-package com.cyberoxi.sevadathink.payload.exceptions;
+package com.cyberoxi.sevadathink.exceptions;
 
 
 import org.springframework.http.HttpStatus;

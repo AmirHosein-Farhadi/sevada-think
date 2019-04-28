@@ -1,8 +1,8 @@
 package com.cyberoxi.sevadathink.services;
 
+import com.cyberoxi.sevadathink.exceptions.FileStorageException;
+import com.cyberoxi.sevadathink.exceptions.MyFileNotFoundException;
 import com.cyberoxi.sevadathink.payload.UploadedPicture;
-import com.cyberoxi.sevadathink.payload.exceptions.FileStorageException;
-import com.cyberoxi.sevadathink.payload.exceptions.MyFileNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;

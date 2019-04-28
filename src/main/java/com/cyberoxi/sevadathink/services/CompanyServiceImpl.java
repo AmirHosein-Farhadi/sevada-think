@@ -53,11 +53,17 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Company update(Company company) {
-        if (company.getProjects() == null)
-            company.setProjects(companyRepository.findByName(companyName).getProjects());
-        if (company.getEmployees() == null)
-            company.setEmployees(companyRepository.findByName(companyName).getEmployees());
-        return company;
+    public Company updateCompany(Company company) {
+        Company companyNew = companyRepository.findByName(companyName);
+        companyNew.setName(company.getName());
+        companyNew.setAddress(company.getAddress());
+        companyNew.setComments(company.getComments());
+        companyNew.setEmail(company.getEmail());
+        companyNew.setLogo(company.getLogo());
+        companyNew.setPhoneNumber(company.getPhoneNumber());
+        companyNew.setPriceUnit(company.getPriceUnit());
+        companyNew.setStartOfTheWeek(company.getStartOfTheWeek());
+
+        return companyNew;
     }
 }

@@ -32,9 +32,6 @@ public class Company extends AuditModel {
 
     private String comments;
 
-//    @JoinTable(name = "company_employees",
-//            joinColumns = @JoinColumn(name = "company_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name = "employees_id", referencedColumnName = "id"))
     @OneToMany
     private List<Employee> employees = new ArrayList<>();
 

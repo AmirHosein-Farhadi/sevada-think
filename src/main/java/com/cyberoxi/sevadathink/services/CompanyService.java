@@ -12,5 +12,5 @@ public interface CompanyService {
 
     ProjectsListDTO getProjects();
 
-    Company update(Company company);
+    Company updateCompany(Company company);
 }

@@ -1,4 +1,4 @@
-package com.cyberoxi.sevadathink.payload.exceptions;
+package com.cyberoxi.sevadathink.exceptions;
 
 public class FileStorageException extends RuntimeException {
     public FileStorageException(String message) {
