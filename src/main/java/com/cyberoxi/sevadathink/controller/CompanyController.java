@@ -28,9 +28,9 @@ public class CompanyController {
     }
 
     @PutMapping("/update")
-    public void updateCompany(@RequestBody Company company){
-        //company.setId(companyRepository.findByName("CyberOxi").getId());
-        companyRepository.save(company);
+    public ResponseEntity updateCompany(@RequestBody Company company){
+        companyRepository.save(companyService.update(company));
+        return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 
     @GetMapping
