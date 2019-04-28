@@ -1,6 +1,6 @@
 package com.cyberoxi.sevadathink.controller;
 
-import com.cyberoxi.sevadathink.model.Company;
+import com.cyberoxi.sevadathink.api.model.CompanyDTO;
 import com.cyberoxi.sevadathink.repositories.CompanyRepository;
 import com.cyberoxi.sevadathink.services.CompanyService;
 import org.springframework.http.HttpStatus;
@@ -23,14 +23,21 @@ public class CompanyController {
     }
 
     @PostMapping("/new")
-    public void newCompany(@RequestBody Company company){
-        companyRepository.save(company);
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public CompanyDTO newCompany(@RequestBody CompanyDTO companyDTO){
+        return companyService.updateCompany(companyDTO);
     }
 
     @PutMapping("/update")
-    public ResponseEntity updateCompany(@RequestBody Company company){
-        companyRepository.save(companyService.updateCompany(company));
-        return new ResponseEntity(HttpStatus.ACCEPTED);
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public CompanyDTO updateCompany(@RequestBody CompanyDTO companyDTO){
+        return companyService.updateCompany(companyDTO);
+    }
+
+    @PatchMapping("/patch")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void patchCompany(@RequestBody CompanyDTO companyDTO){
+        companyService.patchCompany(companyDTO);
     }
 
     @GetMapping
